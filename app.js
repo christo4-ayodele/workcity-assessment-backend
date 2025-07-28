@@ -1,15 +1,15 @@
-import express from 'express'
-import cors from 'cors'
+import express from "express";
+import cors from "cors";
 
-const app = express()
+const app = express();
 
 //Middlewares
 
 //Enable Cross-Origin Resource Sharing (CORS)
-app.use(cors()); 
+app.use(cors());
 
 //Automatically parse incoming JSON requests
-app.use(express.json()) 
+app.use(express.json());
 
 // ===== ROUTES =====
 // app.use('/api/auth', authRoutes);
