@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import authRoutes from "./routes/auth.js";
-
+import clientRoutes from "./routes/client.js";
 const app = express();
 
 //Middlewares
@@ -16,4 +16,5 @@ app.use(express.json());
 app.use("/api/auth", authRoutes);
 // app.use('/api/projects', projectRoutes);
 
+app.use("/api/clients", clientRoutes);
 export default app;
