@@ -6,13 +6,15 @@ import {
   getClientById,
   updateClient,
 } from "../controllers/clientController.js";
+import { protect } from "../middleware/authMiddleware.js";
+import { authorizeRoles } from "../middleware/roleMiddleware.js";
 
 const router = express.Router();
 
-router.post("/", createClient);
-router.get("/", getAllClients);
-router.get("/:id", getClientById);
-router.put("/:id", updateClient);
-router.delete("/:id", deletClient);
+router.post("/", protect, createClient);
+router.get("/", protect, getAllClients);
+router.get("/:id", protect, getClientById);
+router.put("/:id", protect, updateClient);
+router.delete("/:id", protect, authorizeRoles("admin"), deletClient);
 
 export default router;
